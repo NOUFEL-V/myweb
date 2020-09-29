@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
+    <script src="//geodata.solutions/includes/countrystatecity.js"></script>
+    <title>DATA FORM</title>
+    
+</head>
+<body>
+    <header class="w3-green w3-container w3-text-black">
+        <!-- Navbar (sit on top) -->
+    <div class="w3-top">
+        <div class="w3-bar w3-white w3-card" id="myNavbar">
+          <a href="#home" class="w3-bar-item w3-button w3-wide"> <img src="https://i.ibb.co/523qLVS/ll.png" alt="LOGO"> </a>
+            <!-- Right-sided navbar links -->
+            <div class="w3-right w3-hide-small">
+              <a href="D:\webdesign\My_website\index.html" class="w3-bar-item w3-button">HOME</a>
+              <a href="#team" class="w3-bar-item w3-button"><i class="fa fa-user"></i> ABOUT</a>
+              <a href="#work" class="w3-bar-item w3-button"><i class="fa fa-th"></i> WORK</a>
+              <a href="#contact" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> CONTACT</a>
+            </div>
+            <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+    
+          <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+            <i class="fa fa-bars"></i>
+          </a>
+        </div>
+      </div>
+    </header>
+      <div class="fdiv">
+        <form class="form" id="submit-form" action="">
+            <br>
+            <input name="First Name" class="fn" placeholder="First Name" type="text">
+            <br>
+            <br>
+            <input name="Middle Name" class="mn" placeholder="Middle Name" type="text">
+            <br>
+            <br>
+            <input name="Last Name" class="ln" placeholder="Last Name" type="text">
+            <br>
+            <br>
+            <input name="Age" class="age" placeholder="Age" type="number">
+            <br>
+            <label>Date of birth</label>
+            <BR>
+            <input name="Date of birth" placeholder="Date of birth" class="date" type="date">
+            <br><br>
+            <label>Gender</label>
+            <br>
+            <input class="Gender" type="radio" name="Gender"value="male">
+            <label for="">Male</label>
+            <input class="Gender" type="radio" name="Gender"value="female">
+            <label for="">Female</label>
+            <br>
+            <br>
+            <label >Your city</label>
+            <br>
+            <select name="Country" class="countries order-alpha" id="countryId">
+                <option value="">Select Country</option>
+            </select>
+            <select name="State" class="states order-alpha" id="stateId">
+                <option value="">Select State</option>
+            </select>
+            <select name="City" class="cities order-alpha" id="cityId">
+                <option value="">Select City</option>
+            </select>
+             <br>
+             <br>
+             <input name="Email" class="email" placeholder="Email" type="email">
+             <br>
+             <br>
+             <input name="Phone Numbe" class="phone" placeholder="Phone Numbe" type="tel">
+             <br>
+             <br>
+             <label>Languages Known</label>
+             <br>
+             <input name="Languages Known" value="malayalam" type="checkbox">
+             <label>malayalam</label>
+             
+             <input name="Languages Known" value="english" type="checkbox">
+             <label>english</label>
+             
+             <input name="Languages Known" value="hindi" type="checkbox">
+             <label>hindi</label>
+             <br>
+             <input name="Languages Known" value="urdu" type="checkbox">
+             <label>urdu</label>
+             
+             <input name="Languages Known" value="arabic" type="checkbox">
+             <label>arabic</label>
+             
+             <input name="Languages Known" value="thamil" type="checkbox">
+             <label>thamil</label>
+             <br><br>
+             <input class="w3-button w3-RED button" type="submit" value="SUBMIT FORM">
+        </form>
+      </div>
+      <script>
+        $("#submit-form").submit((e)=>{
+            e.preventDefault()
+            $.ajax({
+                url:"https://script.google.com/macros/s/AKfycbzw2qYGrVwVeSUC_-5js86hJqUw54tJZ6Tjv4XSlxIGXmLxhOpW/exec",
+                data:$("#submit-form").serialize(),
+                method:"post",
+                success:function (response){
+                    alert("FORM SUBMITTED SUCCESSFULLY")
+                    window.location.reload()
+                    //window.location.href="https://google.com"
+                },
+                error:function (err){
+                    alert("Something Error")
+    
+                }
+            })
+        })
+    </script>
+</body>
+</html>
